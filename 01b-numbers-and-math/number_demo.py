@@ -38,6 +38,25 @@ print(f"1 + 2 = {int_sum_result}")
 float_sum_result = 1.4 + 2 
 print(f"1.4 + 2 = {float_sum_result}")
 
+# You can also use the addition operator to combine two strings.
+#	This operation is called "concatenation".
+str1 = "hello"
+str2 = "goodbye"
+print(f"'hello' + 'goodbye' = {str1 + str2}")
+
+## Multiplication
+# Adding two integers gives you an integer
+int_product_result = 1 * 2 
+print(f"1 * 2 = {int_product_result}")
+
+# Adding a float to an integer or another float results in a floating point result
+float_product_result = 1.4 * 2 
+print(f"1.4 * 2 = {float_product_result}")
+
+# You can also use the multiplication operator to cause a string to repeat
+repeat_count = 3
+print(f"{str1 * repeat_count}")
+
 ## Subtration
 # Subtracting two integers gives you an integer
 int_subtract_result = 1 - 2 
