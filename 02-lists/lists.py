@@ -17,7 +17,7 @@ print(f"An empty list: {my_empty_list}")
 my_integer_list = [1, 2, 3, 4]
 print(f"List of numbers: {my_integer_list}")
 
-my_string_list = ['hi', 'hola', 'Salut', 'Guten Tag', 'Nei Ho']
+my_string_list = ['Hi', 'Hola', 'Salut', 'Guten Tag', 'Nei Ho']
 print(f"List of strings: {my_string_list}")
 
 mixed_data_list = [1, 'hi', 2, 'hola']
@@ -55,7 +55,7 @@ print(f"Last item in the list is: {my_sample_list[-1]}")
 #	* When using positive integers, the beginning of the list
 #	  is always 0 and the end is always the list length - 1
 #	* When using negative integers, the end is always -1 and
-#	  the beginning of the list is always the list legnth * -1
+#	  the beginning of the list is always the list length * -1
 #	  or simply -length.
 
 # If you request a positive index that is too large, or a negative
