@@ -171,3 +171,35 @@ print(f"List from 1-10: {one_to_ten}")
 # List comprehensions are not super easy to think about. I encourage you to play
 #	with them a bit until you feel more comfortable with the syntax and results
 #	they produce.
+
+print("\nTuples")
+
+# Tuples are a lot like lists. They can hold multiple types of data,
+#   can have their values accessed by position index, but there are a few key differences.
+
+# Declaring a Tuple requires the use of parenthesis and commas to separate values.
+my_tuple = (1, "little", "tuple")
+print(f"Data in my_tuple: {my_tuple}")
+print(f"The second element in the tuple is: {my_tuple[1]}")
+
+# It looks a bit like a function, but there is no name associated with the values
+#   contained within the parenthesis. An oddity with tuples is declaring a tuple
+#   with one value.
+only_one_value = (1,)
+print(f"The tuple has one value: {only_one_value}")
+
+# That looks a  bit weird to have the trailing comma, but it's the only way
+#   Python knows that you want that to be a tuple with one value an not just
+#   the value one in parenthesis (1). Just a little quirk to keep in mind.
+
+# Unlike lists, tuples are immutable (cannot be changed). So the following isn't allowed:
+#   my_tuple[0] = 10 # CANNOT CHANGE THE TUPLE
+# There is also no way to add or remove values from the tuple like you can with lists.
+
+# You can loop over tuple values
+for data in my_tuple:
+    print(data)
+
+# You can also sort a tuple with the sorted() function
+my_number_tuple = (45, 6, 32, 8, 11, 6)
+print(sorted(my_number_tuple))
