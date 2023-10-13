@@ -1,4 +1,4 @@
-# Define a class named Car
+# Declare a class named Car
 #   Classes can go in a separate file (a Module) or they can be used
 #   from a single file. This is a trivial example, so it is all in one
 #   file for convenience.
