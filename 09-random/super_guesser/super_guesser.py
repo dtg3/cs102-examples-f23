@@ -7,8 +7,6 @@ def validate_input(user_input):
     
     number = int(user_input)
 
-    # Makes the game boring since the range
-    #   1-0 doesn't make sense and 1-1 is boring...
     if number < 1:
         return None
     

@@ -30,7 +30,7 @@ while(wants_to_play):
             print("Your guess is too low.")
         elif guess_result == '+':
             print("Your guess is too high")
-        else:
+        elif guess_result == "=":
             print(f"Correct, I was thinking of the nubmer {mystery_number}!")
     
     play_again = None
