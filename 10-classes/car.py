@@ -4,7 +4,7 @@
 #   file for convenience.
 class Car:
     
-    # constructor (must be called __init__) initializes object when called
+    # The method to setup your instance of the class must be called __init__.
     #   the first paramter for all class methods refers to the instance of the
     #   object. The name self is used by convention to refer to the object, in
     #   this case, and instance of the car class. All other parameters follow
@@ -28,15 +28,19 @@ class Car:
         return self.mileage
 
 
-# Call the constructor to create an instance of the object and
+# Call the initialization to create an instance of the object and
 #   initialize it's attributes
 myCar = Car("red", 2014)
+myCar2 = Car("red", 2014)
 
 # call any methods that are defined on a Car object
 myCar.drive(100)
 print( "Mileage is: ", myCar.getMileage() )
 myCar.drive(300)
 print( "Mileage is: ", myCar.getMileage() )
+
+myCar2.drive(1000)
+print( "Mileage is: ", myCar2.getMileage() )
 
 # You can create an "unlimited" number of instances of the same object
 ddCar = Car("blue", 2021)
