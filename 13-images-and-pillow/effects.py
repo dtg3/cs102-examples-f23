@@ -19,6 +19,42 @@ def average_luminance(color):
     return (r + g + b) / 3
 
 
+def reflect_vertical(picture_path):
+    source = Image.open(Path(picture_path))
+    px = source.load()
+    width, height = source.size
+    
+    # We will be "swapping pixels from the left side of the
+    #	image to the right side. This means that we only need
+    #	to travel half the width of the image
+    for x in range(width // 2):
+        for y in range(height):
+            # Since swapping the values will replace one of them
+            #	we need to temporarily store one of the values
+            #	we are swapping
+            temp_pixel = px[x, y]
+            px[x, y] = px[width - 1 - x, y]
+            px[width - 1 - x, y] = temp_pixel
+    
+    return source
+
+
+def reflect_horizontal(picture_path):
+    source = Image.open(Path(picture_path))
+    px = source.load()
+    width, height = source.size
+    
+    # This is the same idea as the vertical reflect, but
+    #	instead we are doing this over the horizontal axis
+    for x in range(width):
+        for y in range(height // 2):
+            temp_pixel = px[x, y]
+            px[x, y] = px[x, height - 1 - y]
+            px[x, height - 1 - y] = temp_pixel
+    
+    return source
+            
+
 def detect_edge(picture_path):
     source = Image.open(Path(picture_path))
     px = source.load()
@@ -42,6 +78,7 @@ def detect_edge(picture_path):
                     px[x, y] = (255,255,255)
 
     return source
+
 
 def chroma_key(fg, bg, ccolor):
     foreground = Image.open(fg)
@@ -107,8 +144,37 @@ def blend_images(pic1_path, pic2_path):
             new_pixels[x, y] = (r, g, b)
     
     return new_image    
+
+
+# You implemented a version of this using 2D lists.
+#	This is not an intense blur, so the effect is very subtle
+#	and softens the image.
+def blur(picture_path):
+    source = Image.open(Path(picture_path))
+    px = source.load()
+    width, height = source.size
+    
+        
+    for x in range(1, width - 1):
+        for y in range(1, height - 1):
+            top = px[x, y-1]
+            left = px[x-1, y]
+            right = px[x+1, y]
+            bottom = px[x, y+1]
+            center = px[x, y]
             
+            r = (top[0] + left[0] + right[0] + bottom[0] + center[0]) // 5
+            g = (top[1] + left[1] + right[1] + bottom[1] + center[1]) // 5
+            b = (top[2] + left[2] + right[2] + bottom[2] + center[2]) // 5
             
+            px[x, y] = (r, g, b)
+    
+    return source
+
+
+reflect_vertical(Path('images/car.jpg')).show()
+reflect_horizontal(Path('images/car.jpg')).show()
+
 detect_edge(Path('images/car.jpg')).show()
 
 chroma_color = (1, 255, 19)
@@ -119,3 +185,5 @@ greyscale(Path('images/apples.jpg')).show()
 pic1_path = Path('images/dog.jpg')
 pic2_path = Path('images/leaf.jpg')
 blend_images(pic1_path, pic2_path).show()
+
+blur(Path('images/dog.jpg')).show()
