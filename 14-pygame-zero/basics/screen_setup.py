@@ -1,3 +1,6 @@
+# NOTE: You need to install the "pgzero" package in Thonny
+#	like we did with Pillow or the pgzrun import will not work
+
 # This import must be the first line of the program
 import pgzrun
 import sys
