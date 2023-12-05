@@ -66,7 +66,7 @@ def explorer_walk():
     """
     global explorer
     
-    explorer.walk_frame = (explorer.walk_frame + 1) % len(explorer.walk[explorer.direction])
+    explorer.walk_frame = (explorer.walk_frame + 1) % len(explorer.walk[explorer.walk_direction])
     explorer.image = explorer.walk[explorer.walk_direction][explorer.walk_frame]
 
 
